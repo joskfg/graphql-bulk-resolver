@@ -20,13 +20,9 @@ The trait split the resolver in two parts, fetch and pluck.
 This part receive all the root objects in one array, so you can process all of them in one shoot and return all the data in the
 best way to be processed in the pluck.
 
-For example:
-
 ### Pluck
 The method receives all the data processed and the root that is requesting the info, so it should search inside the data processed
 and return the specific data.
-
-For example:
 
 Testing
 -------
