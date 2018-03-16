@@ -75,7 +75,7 @@ class DeferredResolverTraitTest extends TestCase
         $this->assertEquals($thirdResult, 'result3');
     }
 
-    private function getResolver(): object
+    private function getResolver()
     {
         return new class
         {
@@ -88,7 +88,7 @@ class DeferredResolverTraitTest extends TestCase
         };
     }
 
-    private function resolvePromises(): void
+    private function resolvePromises()
     {
         Deferred::runQueue();
         SyncPromise::runQueue();
