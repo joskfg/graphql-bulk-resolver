@@ -2,7 +2,7 @@
   "name": "joskfg/graphql-bulk-resolver",
   "type": "library",
   "description" : "GraphQL Bulk Resolver",
-  "keywords": ["joskfg", "graphql", "resolver", "bulk", "n+1"],
+  "keywords": ["joskfg", "graphql", "resolver", "bulk", "n plus 1"],
   "license": "MIT",
   "homepage": "https://github.com/joskfg/graphql-bulk-resolver",
   "support": {
