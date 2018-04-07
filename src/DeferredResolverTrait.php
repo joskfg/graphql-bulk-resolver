@@ -12,7 +12,7 @@ trait DeferredResolverTrait
         'results' => [],
     ];
 
-    protected function deferredResolver(DeferredResolverInterface $resolver):\Closure
+    private function deferredResolver(DeferredResolverInterface $resolver):\Closure
     {
         return function ($root, array $args = [], $context = null, $info = null) use ($resolver):Deferred {
             self::$buffer['roots'][] = $root;
