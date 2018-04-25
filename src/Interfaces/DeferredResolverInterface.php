@@ -15,10 +15,13 @@ interface DeferredResolverInterface
      * Process all roots and return all the information obtained.
      *
      * @param array $roots
+     * @param mixed $args 
+     * @param mixed $context
+     * @param mixed $info
      *
      * @return mixed
      */
-    public function fetch(array $roots);
+    public function fetch(array $roots, $args, $context, $info);
 
     /**
      * Returns the data depending on the root.
