@@ -24,6 +24,11 @@ best way to be processed in the pluck.
 The method receives all the data processed and the root that is requesting the info, so it should search inside the data processed
 and return the specific data.
 
+You must implement the resolver using the `DeferredResolverInterface` and use the trait in the resolver type like this:
+```
+'resolve' => $this->deferredResolve(new MyResolver());
+```
+
 You can see an article about the package at https://medium.com/@JoseCardona/solving-graphql-n-1-in-php-92ed9161dd7b
 
 Testing
