@@ -30,11 +30,16 @@
     }
   },
   "scripts": {
-    "test": "phpunit --coverage-text; php-cs-fixer fix -v --diff --dry-run --allow-risky=yes;",
+    "test": [
+      "@phpunit",
+      "@infection",
+      "@phpcs",
+      "@phpstan"
+    ],
     "phpunit": "phpunit --coverage-text",
     "infection": "infection --min-msi=0 --min-covered-msi=0",
     "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes;",
-    "fix-cs": "php-cs-fixer fix -v --diff --allow-risky=yes;",
-    "phpstan": "phpstan analyze -c phpstan.neon -l 7 --no-progress --no-interaction src tests"
+    "phpstan": "phpstan analyze -c phpstan.neon -l 7 --no-progress --no-interaction src tests",
+    "fix-cs": "php-cs-fixer fix -v --diff --allow-risky=yes;"
   }
 }
