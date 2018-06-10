@@ -6,6 +6,7 @@ $finder = PhpCsFixer\Finder::create()
 return PhpCsFixer\Config::create()
     ->setRules([
         '@PSR2' => true,
+        'declare_strict_types' => true,
         'array_syntax' => ['syntax' => 'short'],
         'concat_space' => ['spacing' => 'one'],
         'new_with_braces' => true,
@@ -30,6 +31,7 @@ return PhpCsFixer\Config::create()
         'space_after_semicolon' => true,
         'ternary_operator_spaces' => true,
         'trailing_comma_in_multiline_array' => true,
+        'binary_operator_spaces' => ['align_double_arrow' => true, 'align_equals' => true],
         'trim_array_spaces' => true,
         'whitespace_after_comma_in_array' => true,
     ])

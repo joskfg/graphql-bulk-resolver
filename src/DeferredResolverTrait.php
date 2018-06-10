@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Joskfg\GraphQLBulk;
 
@@ -9,11 +9,12 @@ trait DeferredResolverTrait
 {
     private static $buffer = [];
 
+    /** @noinspection PhpUnusedPrivateMethodInspection */
     private function deferredResolver(DeferredResolverInterface $resolver): \Closure
     {
         return function ($root, array $args = [], $context = null, $info = null) use ($resolver): Deferred {
-            $resolverName = get_class($resolver);
-            self::$buffer[$resolverName] ?? self::$buffer[$resolverName] = [];
+            $resolverName                = \get_class($resolver);
+            self::$buffer[$resolverName] = self::$buffer[$resolverName] ?? [];
 
             $buffer            = &self::$buffer[$resolverName];
             $buffer['results'] = [];

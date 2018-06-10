@@ -50,7 +50,7 @@ $ docker-compose run psysh
 License
 -------
 
-The MIT license. Please see [LICENSE](LICENSE) for more information.
+The MIT license. Please see [LICENSE](LICENSE.md) for more information.
 
 [PSR-2]: http://www.php-fig.org/psr/psr-2/
 [PSR-4]: http://www.php-fig.org/psr/psr-4/

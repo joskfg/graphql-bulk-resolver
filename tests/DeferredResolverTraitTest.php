@@ -1,14 +1,12 @@
-<?php
+<?php declare(strict_types=1);
+/** @noinspection PhpUndefinedMethodInspection */
 
 namespace Joskfg\GraphQLBulk;
 
-
-use function foo\func;
 use GraphQL\Deferred;
 use GraphQL\Executor\Promise\Adapter\SyncPromise;
 use Joskfg\GraphQLBulk\Interfaces\DeferredResolverInterface;
 use PHPUnit\Framework\TestCase;
-
 
 class DeferredResolverTraitTest extends TestCase
 {
@@ -17,7 +15,7 @@ class DeferredResolverTraitTest extends TestCase
      */
     public function whenReceiveAnObjectItShouldCallFetchAndPluckTransmittingTheInformation()
     {
-        $resolver = \Mockery::mock(DeferredResolverInterface::class);
+        $resolver         = \Mockery::mock(DeferredResolverInterface::class);
         $deferredResolver = $this->getResolver();
 
         $resolver->shouldReceive('fetch')
@@ -50,13 +48,13 @@ class DeferredResolverTraitTest extends TestCase
 
         $resolveField = $deferredResolver->run($resolver);
 
-        $firstPromise = $resolveField('root1', ['args'], 'context', 'info');
+        $firstPromise  = $resolveField('root1', ['args'], 'context', 'info');
         $secondPromise = $resolveField('root2', ['args'], 'context', 'info');
-        $thirdPromise = $resolveField('root3', ['args'], 'context', 'info');
+        $thirdPromise  = $resolveField('root3', ['args'], 'context', 'info');
 
-        $firstResult = null;
+        $firstResult  = null;
         $secondResult = null;
-        $thirdResult = null;
+        $thirdResult  = null;
 
         $firstPromise->then(function ($result) use (&$firstResult) {
             $firstResult = $result;
@@ -80,7 +78,7 @@ class DeferredResolverTraitTest extends TestCase
      */
     public function whenReceiveNewCallsAfterFetchItShouldReturnJustTheNewData()
     {
-        $resolver = \Mockery::mock(DeferredResolverInterface::class);
+        $resolver         = \Mockery::mock(DeferredResolverInterface::class);
         $deferredResolver = $this->getResolver();
 
         $resolver->shouldReceive('fetch')
@@ -115,8 +113,8 @@ class DeferredResolverTraitTest extends TestCase
 
         $resolveField = $deferredResolver->run($resolver);
 
-        $firstPromise  = $resolveField('root1', ['args'], 'context', 'info');
-        $firstResult   = null;
+        $firstPromise = $resolveField('root1', ['args'], 'context', 'info');
+        $firstResult  = null;
         $firstPromise->then(function ($result) use (&$firstResult) {
             $firstResult = $result;
         });
@@ -125,7 +123,7 @@ class DeferredResolverTraitTest extends TestCase
         $this->assertEquals('result1', $firstResult);
 
         $secondPromise = $resolveField('root2', ['args'], 'context', 'info');
-        $secondResult = null;
+        $secondResult  = null;
         $secondPromise->then(function ($result) use (&$secondResult) {
             $secondResult = $result;
         });
@@ -136,8 +134,7 @@ class DeferredResolverTraitTest extends TestCase
 
     private function getResolver()
     {
-        return new class
-        {
+        return new class() {
             use DeferredResolverTrait;
 
             public function run($resolver)

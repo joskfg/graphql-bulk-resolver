@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: jose
@@ -8,14 +8,13 @@
 
 namespace Joskfg\GraphQLBulk\Interfaces;
 
-
 interface DeferredResolverInterface
 {
     /**
      * Process all roots and return all the information obtained.
      *
      * @param mixed $roots
-     * @param mixed $args 
+     * @param mixed $args
      * @param mixed $context
      * @param mixed $info
      *
